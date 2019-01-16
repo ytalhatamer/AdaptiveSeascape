@@ -2,7 +2,7 @@ from CylinderFunctions import *
 import numpy as np
 import os, povexport
 from vpython import vector, canvas, box, ring
-
+from datetime import datetime
 
 class CreatePlatform(CylinderFunctions):
     def __init__(self,data,states):
@@ -15,24 +15,18 @@ class CreatePlatform(CylinderFunctions):
         self.scene.ambient = vector(0.5, 0.5, 0.5)
         self.scene.fov = np.pi / 5.0
         self.scene.range = 180.0
+        datenow=str(datetime.now()).replace(' ', '-').replace(':', '-').split('.')[0]
         for Fitnesses in self.FitnessColumns:
             self.plot_scene(Fitnesses)
-            self.pov_export('.',Fitnesses+'.pov')
+            self.pov_export('.',datenow+'-'+Fitnesses)
 
     def plot_scene(self,FitnessColumn):
         cyls = []
-        cylpos=[]
+
         for index,variant in self.data.iterrows():
             self.num_cylinder_in_orbital=len([i for i in self.data['Orbital_Number'] if variant['Orbital_Number']==i])
             poss = self.position_cylinder(self.num_cylinder_in_orbital, variant['Order_in_Orbital'],variant['Orbital_Number'])
-            # cylpos.append(poss)
-            # self.data['Cylinder_Position'] = cylpos
-            # for j in range(len(i)):
-            #     cylpositions[i[j]] = poss[j]
-            #     if i[j] > 47:
-            #         prom = 1
-            #     else:
-            #         prom = 0
+
             if 'Mutant_Middle' in variant:
                 prom=variant['Mutant_Middle']
             else:
@@ -43,7 +37,7 @@ class CreatePlatform(CylinderFunctions):
         for i in range(1,self.data['Orbital_Number'].max()+1):
             ring(pos=vector(0, 0, .1), axis=vector(0, 0, 0.1), radius=self.orbital_diameter * i, thickness=.2, color=vector(0, 0, 0))
 
-        return (cyls)
+        return cyls
 
     def arrow_between_cylinders(pos1, pos2, color, r):
         def distance(pos1, pos2):

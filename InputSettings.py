@@ -3,16 +3,17 @@ import numpy as np
 import random
 class InputSettings:
     def __init__(self,data,states):
-        self.color_palette = [vector(0.20, 0.47, 0.75),
-                                        vector(0.75, 0.59, 0.27),
-                                        vector(1.00, 0.00, 0.00),
-                                        vector(0.00, 1.00, 1.00),
-                                        vector(0.00, 0.00, 0.00),
-                                        vector(1.00, 0.00, 1.00),
-                                        vector(0.00, 1.00, 0.00),
-                                        vector(0.00, 0.00, 1.00),
-                                        vector(1.00, 1.00, 0.00),
-                                        vector(1.00, 0.47, 0.00)]
+        self.color_palette = [  vector(1.00, 0.00, 0.00),
+                                vector(0.00, 0.00, 1.00),
+                                vector(0.00, 1.00, 1.00),
+                                vector(0.00, 1.00, 0.00),
+                                vector(1.00, 0.00, 1.00),
+                                vector(1.00, 1.00, 0.00),
+                                vector(0.00, 0.00, 0.00),
+                                vector(1.00, 0.47, 0.00),
+                                vector(0.20, 0.47, 0.75),
+                                vector(0.75, 0.59, 0.27),
+                                vector(0.50,0.25,0.75)]
         self.circle_color_middle = vector(0.30, 0.30, 0.30)
         self.orbital_diameter = 50
         self.cylinder_diameter = 4
@@ -23,7 +24,11 @@ class InputSettings:
         self.MutantColumns= [i for i in self.data.columns if 'Mutant_Periphery' in i]
 
         self.numVariants=len(self.MutantColumns)
-        self.circle_color_periphery=random.sample(self.color_palette,self.numVariants)
+        if len(self.color_palette) < self.numVariants:
+            self.circle_color_periphery=[vector(random.random(),random.random(),random.random()) for i in range(self.numVariants)]
+        else:
+            self.circle_color_periphery=self.color_palette[:self.numVariants]
+        # self.circle_color_periphery=random.sample(self.color_palette,self.numVariants)
         self.FitnessColumns=[i for i in self.data.columns if 'Fitness' in i]
         self.numFitnessStates = len(self.FitnessColumns)
         self.numStates = len(self.states)

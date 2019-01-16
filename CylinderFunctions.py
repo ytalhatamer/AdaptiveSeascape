@@ -68,9 +68,9 @@ class CylinderFunctions(InputSettings):
                                   radius=rr + rr / 10, opacity=.7))
 
             elif variants[l] == 2:
-                posnew = vector(position[0] + (2 * self.cylinder_diameter / 3) * np.cos(l * (np.pi / ((len(variants)) / 2.0))),
-                                position[1] + (2 * self.cylinder_diameter / 3) * (np.sin(l * (np.pi / ((len(variants)) / 2.0)))), position[2])
-                b.append(cylinder(pos=posnew, axis=vector(0, 0, rr - rr / 5.), color=vector(0, .2, 0),
+                posnew = vector(position.x + (2 * self.cylinder_diameter / 3) * np.cos(l * (np.pi / ((len(variants)) / 2.0))),
+                                position.y + (2 * self.cylinder_diameter / 3) * (np.sin(l * (np.pi / ((len(variants)) / 2.0)))), position.z)
+                b.append(cylinder(pos=posnew, axis=vector(0, 0, rr - rr / 5.), color=self.circle_color_periphery[l]/3.0,
                                   radius=rr + rr / 10, opacity=.7))  # ,height=rr-.5)
         return b
 
