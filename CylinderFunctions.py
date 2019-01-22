@@ -43,7 +43,7 @@ class CylinderFunctions(InputSettings):
             j += .1
         kk = vector(255.0/255.0, 248.0/255.0, 220.0/255.0)
         a.append(cylinder(pos=vector(x, y, MIC + .1), axis=vector(0, 0, .1),
-                          radius=self.cylinder_diameter - .5, color=kk))
+                          radius=self.cylinder_diameter * .95 , color=kk))
         posn = vector(x, y, MIC)
 
         b = self.variants_on_top(posn, mut_list)
@@ -57,19 +57,24 @@ class CylinderFunctions(InputSettings):
     def variants_on_top(self,position,variants):
         b = []
         rr = (self.cylinder_diameter / 5.)
-
+        variant_cylinder_diameter=self.cylinder_diameter * 0.635
+        # This variable shows the cylinder where the centers of variant circles are located.
         for l in range(len(variants)):
             if variants[l] == 1:
-                posnew = vector(position.x + (2 * self.cylinder_diameter / 3) *
-                                                            np.cos(l * (np.pi / ((len(variants)) / 2.0))),
-                                position.y + (2 * self.cylinder_diameter / 3) *
-                                                            (np.sin(l * (np.pi / ((len(variants)) / 2.0)))), position.z)
+                posnew = vector(position.x + variant_cylinder_diameter *
+                                                    np.cos(l * (np.pi / ((len(variants)) / 2.0))),
+                                position.y + variant_cylinder_diameter *
+                                                    np.sin(l * (np.pi / ((len(variants)) / 2.0))),
+                                position.z)
                 b.append(cylinder(pos=posnew, axis=vector(0, 0, rr - rr / 5.), color=self.circle_color_periphery[l],
                                   radius=rr + rr / 10, opacity=.7))
 
             elif variants[l] == 2:
-                posnew = vector(position.x + (2 * self.cylinder_diameter / 3) * np.cos(l * (np.pi / ((len(variants)) / 2.0))),
-                                position.y + (2 * self.cylinder_diameter / 3) * (np.sin(l * (np.pi / ((len(variants)) / 2.0)))), position.z)
+                posnew = vector(position.x + variant_cylinder_diameter *
+                                                    np.cos(l * (np.pi / ((len(variants)) / 2.0))),
+                                position.y + variant_cylinder_diameter *
+                                                    np.sin(l * (np.pi / ((len(variants)) / 2.0))),
+                                position.z)
                 b.append(cylinder(pos=posnew, axis=vector(0, 0, rr - rr / 5.), color=self.circle_color_periphery[l]/3.0,
                                   radius=rr + rr / 10, opacity=.7))  # ,height=rr-.5)
         return b
