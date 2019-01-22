@@ -7,6 +7,6 @@ For example, below figure is showing the IC<sub>99.99</sub> values of TEM-1 beta
 ![alt text](2019-01-16-11-56-50-JAGMdeVisser-2018-Heredity.png)
 
 
-Next example, is from Ravikumar et al.[https://www.sciencedirect.com/science/article/pii/S0092867418313308]. They evolved pfDHFR using their orthoRep system. In the paper (Figure 4) they showed the MIC values of 48 mutants. (Full combination of 6 mutations). This time height of the cylinders show the log<sub>10</sub> MIC (nM) median values. In the right most corner there is an extra cylinder with quadriple-mutation on it that is observed in patients with pyrimethamine resistant malaria.     
+Next example, is from Ravikumar et al.[https://www.sciencedirect.com/science/article/pii/S0092867418313308]. They evolved pfDHFR using their orthoRep system. In the paper (Figure 4) they showed the MIC values of 48 mutants. (Full combination of 6 mutations). This time height of the cylinders show the log<sub>10</sub> MIC (nM) median values. In the paper they mentioned that pyrimethamine resistant quadriple mutant malaria DHFR has resistance around 1.5-2mM range. (6 disk height in the picture)   
 
 ![alt text](Figure4-BrightColors.png)
