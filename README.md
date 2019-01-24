@@ -1,7 +1,7 @@
 # Adaptive Seascape / Epistadium Plot 
 This tool plots adaptive landscape through time.
 
-_Prerequisites:
+__Prerequisites:__
 
 __-Python 2.7 or Python 3.x__
 
