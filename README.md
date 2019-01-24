@@ -1,11 +1,11 @@
 # Adaptive Seascape / Epistadium Plot 
 This tool plots adaptive landscape through time.
 
-__Prerequisites:__
+___Prerequisites:___
 
-__-Python 2.7 or Python 3.x__
+___-Python 2.7 or Python 3.x___
 
-__-Vpython 6 or later. (preferably Vpython 7)___
+___-Vpython 6 or later. (preferably Vpython 7)___
 
 To start plotting epistadium figures, open inputs.xlsx file and fill the excel file each row contains information for one cylinder. Brief information about columns to fill inside inputs excel file can be found below:
 Sheet Name : Data __(Do not change the sheet name!)__
